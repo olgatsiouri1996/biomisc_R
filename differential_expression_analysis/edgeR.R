@@ -21,6 +21,7 @@ y <- calcNormFactors(y)
 # create design matrix and estimate dispersions
 design <- model.matrix(~group)
 y <- estimateDisp(y,design)
+# perform statistical analysis and export the statistically significant results
 et <- exactTest(y,prior.count = 1)
 res <- topTags(et,n = args$genes,p.value = 0.05)
 t <- res[["table"]]
