@@ -7,7 +7,7 @@ parser <- ArgumentParser(description='calculate the AT content for each input se
 parser$add_argument('--fasta', help= 'input fasta file')
 parser$add_argument('--min', help= 'min AT content cutoff to export')
 parser$add_argument('--max', help= 'max AT content cutoff to export')
-parser$add_argument('--headers', help= 'output txt file with fasta headers and AT content for each sequence')
+parser$add_argument('--out', help= 'output txt file with fasta headers and AT content for each sequence')
 args <- parser$parse_args()
 # main
 at_content <- function(x) {
@@ -24,4 +24,4 @@ filtered_fasta <- subset(imported_fasta, seq.at_content >= args$min & seq.at_con
 gc_table <- filtered_fasta[ ,-2]
 colnames(gc_table) <- c("fasta_header","%AT")
 # export txt file with headers & AT content
-write.table(gc_table,file = args$headers,row.names = F,quote = F,sep = "\t")
+write.table(gc_table,file = args$out,row.names = F,quote = F,sep = "\t")
