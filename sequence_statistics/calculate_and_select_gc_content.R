@@ -7,7 +7,7 @@ parser <- ArgumentParser(description='calculate the GC content for each input se
 parser$add_argument('--fasta', help= 'input fasta file')
 parser$add_argument('--min', help= 'min GC content  cutoff to export')
 parser$add_argument('--max', help= 'max GC content  cutoff to export')
-parser$add_argument('--headers', help= 'output txt file with fasta headers and GC content for each sequence')
+parser$add_argument('--out', help= 'output txt file with fasta headers and GC content for each sequence')
 args <- parser$parse_args()
 # main
 gc_content <- function(x) {
@@ -24,4 +24,4 @@ filtered_fasta <- subset(imported_fasta, seq.gc_content >= args$min & seq.gc_con
 gc_table <- filtered_fasta[ ,-2]
 colnames(gc_table) <- c("fasta_header","%GC")
 # export txt file with headers & GC content
-write.table(gc_table,file = args$headers,row.names = F,quote = F,sep = "\t")
+write.table(gc_table,file = args$out,row.names = F,quote = F,sep = "\t")
