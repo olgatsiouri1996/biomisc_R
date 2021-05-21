@@ -2,7 +2,7 @@
 library(argparse)
 library(bio3d)
 # input parameters
-parser <- ArgumentParser(description='trim an input pdb and export as fasta')
+parser <- ArgumentParser(description='trim an input pdb file and export as fasta')
 parser$add_argument('--pdb', help= 'input pdb file')
 parser$add_argument('--chain', help= 'chain to select from pdb file')
 parser$add_argument('--start', type="integer", help= 'number of resudue to start')
