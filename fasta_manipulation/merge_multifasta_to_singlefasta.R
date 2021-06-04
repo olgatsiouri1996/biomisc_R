@@ -2,7 +2,7 @@
 library(argparse)
 library(phylotools)
 # input parameters
-parser <- ArgumentParser(description='select fasta sequences under a range of sequence length')
+parser <- ArgumentParser(description='merge the sequences of a multifasta file into 1 large sequence')
 parser$add_argument('--fasta', help= 'input fasta file')
 parser$add_argument('--header', help= 'header of the output fasta file')
 parser$add_argument('--out', help= 'output fasta file')
