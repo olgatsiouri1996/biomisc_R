@@ -10,7 +10,7 @@ parser$add_argument('--fasta', help= 'output fasta file')
 args <- parser$parse_args()
 # main
 input_pdb <- read.pdb(args$pdb)
-# select chain and residues
+# select chain
 idx <- atom.select(input_pdb, chain= args$chain)
 trimed_pdb <- trim.pdb(input_pdb,inds = idx)
 # convert and export to fasta
