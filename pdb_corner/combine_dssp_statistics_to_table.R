@@ -2,7 +2,7 @@
 library(argparse)
 # input parameters
 parser <- ArgumentParser(description='combine the secondary structure statistics of pdb files into 1 table')
-parser$add_argument('--txtdir', help= 'absolute path to the directory of input txt files(with suffix: "_stats.txt") derived with: https://github.com/olgatsiouri1996/biomisc/blob/main/pdb_corner/pdb_secondary_structure_statistics.py or https://github.com/olgatsiouri1996/biomisc/blob/main/pdb_corner/dssp_statistics_by_chain.py)')
+parser$add_argument('--txtdir', help= 'absolute path to the directory of input txt files(with pdb ids as part of their names and suffix: "_stats.txt") derived with: https://github.com/olgatsiouri1996/biomisc/blob/main/pdb_corner/pdb_secondary_structure_statistics.py or https://github.com/olgatsiouri1996/biomisc/blob/main/pdb_corner/dssp_statistics_by_chain.py)')
 parser$add_argument('--out', help= 'output txt table with pdb ids as rows and secondary structure symbols as columns')
 args <- parser$parse_args()
 # main
