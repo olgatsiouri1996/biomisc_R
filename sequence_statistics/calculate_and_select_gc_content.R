@@ -5,13 +5,13 @@ library(stringr)
 # input parameters
 parser <- ArgumentParser(description='calculate the GC content for each input sequence')
 parser$add_argument('--fasta', help= 'input fasta file')
-parser$add_argument('--min', help= 'min GC content  cutoff to export')
-parser$add_argument('--max', help= 'max GC content  cutoff to export')
+parser$add_argument('--min', type="integer",default='0', help= 'min GC content  cutoff to export(integer, default = 0)')
+parser$add_argument('--max', type="integer",default='100', help= 'max GC content  cutoff to export(integer, default = 100)')
 parser$add_argument('--out', help= 'output txt file with fasta headers and GC content for each sequence')
 args <- parser$parse_args()
 # main
 gc_content <- function(x) {
-  cont <- round((str_count(x,"G") + str_count(x,"C")) / nchar(x) * 100, 2)
+  cont <- round(((str_count(x,"G") + str_count(x,"C")) / nchar(x)) * 100, 2)
   return(cont)
 }
 # import fasta file and convert to data frame

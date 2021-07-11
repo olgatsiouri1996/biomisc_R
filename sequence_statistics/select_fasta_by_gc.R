@@ -5,8 +5,8 @@ library(stringr)
 # input parameters
 parser <- ArgumentParser(description='select fasta sequences under a GC content cutoff')
 parser$add_argument('--fasta', help= 'input fasta file')
-parser$add_argument('--min', help= 'min GC content cutoff')
-parser$add_argument('--max', help= 'max GC content cutoff')
+parser$add_argument('--min', type="integer", help= 'min GC content cutoff(integer)')
+parser$add_argument('--max', type="integer", help= 'max GC content cutoff(integer)')
 parser$add_argument('--out', help= 'output fasta file')
 args <- parser$parse_args()
 # main

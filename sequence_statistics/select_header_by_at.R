@@ -5,8 +5,8 @@ library(stringr)
 # input parameters
 parser <- ArgumentParser(description='select fasta headers from sequences under a AT content cutoff')
 parser$add_argument('--fasta', help= 'input fasta file')
-parser$add_argument('--min', help= 'min AT content cutoff')
-parser$add_argument('--max', help= 'max AT content cutoff')
+parser$add_argument('--min', type="integer", help= 'min AT content cutoff(integer)')
+parser$add_argument('--max', type="integer", help= 'max AT content cutoff(integer)')
 parser$add_argument('--headers', help= 'output fasta file')
 args <- parser$parse_args()
 # main
