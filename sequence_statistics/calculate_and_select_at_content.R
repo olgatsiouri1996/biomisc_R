@@ -21,7 +21,7 @@ imported_fasta$seq.at_content <- at_content(imported_fasta$seq.text)
 # filter the data frame by selecting the maximum and minimum value of AT content
 filtered_fasta <- subset(imported_fasta, seq.at_content >= args$min & seq.at_content <= args$max)
 # remove the sequences
-gc_table <- filtered_fasta[ ,-2]
-colnames(aa_table) <- c("fasta_header","%AT")
+at_table <- filtered_fasta[ ,-2]
+colnames(at_table) <- c("fasta_header","%AT")
 # export txt file with headers & AT content
-write.table(aa_table,file = args$out,row.names = F,quote = F,sep = "\t")
+write.table(at_table,file = args$out,row.names = F,quote = F,sep = "\t")
