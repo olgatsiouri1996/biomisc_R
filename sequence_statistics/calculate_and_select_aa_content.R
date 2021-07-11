@@ -22,7 +22,7 @@ imported_fasta$seq.aa_content <- aa_content(imported_fasta$seq.text)
 # filter the data frame by selecting the maximum and minimum value of aa content
 filtered_fasta <- subset(imported_fasta, seq.aa_content >= args$min & seq.aa_content <= args$max)
 # remove the sequences
-gc_table <- filtered_fasta[ ,-2]
-colnames(gc_table) <- c("fasta_header",paste("%",args$aa,sep = ""))
+aa_table <- filtered_fasta[ ,-2]
+colnames(aa_table) <- c("fasta_header",paste("%",args$aa,sep = ""))
 # export txt file with headers & aa content
-write.table(gc_table,file = args$out,row.names = F,quote = F,sep = "\t")
+write.table(aa_table,file = args$out,row.names = F,quote = F,sep = "\t")
