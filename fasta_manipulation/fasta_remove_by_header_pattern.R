@@ -2,7 +2,7 @@
 library(argparse)
 library(phylotools)
 # input parameters
-parser <- ArgumentParser(description='remove fasta sequences based on a pattern of their header names')
+parser <- ArgumentParser(description='remove fasta sequences based on a pattern of their fasta headers')
 parser$add_argument('--fasta', help= 'input fasta file')
 parser$add_argument('--pattern', help= 'regular expression with the pattern to search')
 parser$add_argument('--case',type="logical", help= 'boolean, if TRUE ignore case')
