@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
 library(argparse)
+library(ape)
 library(phylotools)
 library(stringr)
 # input parameters

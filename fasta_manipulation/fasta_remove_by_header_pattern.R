@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
 library(argparse)
+library(ape)
 library(phylotools)
 # input parameters
 parser <- ArgumentParser(description='remove fasta sequences based on a pattern of their fasta headers')

@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
 library(argparse)
+library(ape)
 library(phylotools)
 # input parameters
 parser <- ArgumentParser(description='calculate the length of input sequences')

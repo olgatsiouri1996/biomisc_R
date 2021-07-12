@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
 library(argparse)
+library(ape)
 library(phylotools)
 library(stringr)
 # input parameters
@@ -15,7 +16,7 @@ aa_content <- function(x) {
   cont <- round((str_count(x, as.character(args$aa)) / nchar(x)) * 100, 2)
   return(cont)
 }
-# import fasta file and convert to daaa frame
+# import fasta file and convert to data frame
 imported_fasta <- read.fasta(file = args$fasta)
 # count the amino acid content of each sequence
 imported_fasta$seq.aa_content <- aa_content(imported_fasta$seq.text)

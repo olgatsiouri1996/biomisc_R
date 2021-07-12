@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
 library(argparse)
+library(ape)
 library(phylotools)
 # input parameters
 parser <- ArgumentParser(description='remove sequences from a fasta file by a list of ids')

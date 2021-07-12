@@ -1,5 +1,6 @@
 #!/usr/bin/env Rscript
 library(argparse)
+library(ape)
 library(phylotools)
 # input parameters
 parser <- ArgumentParser(description='split multi-fasta file into single-fasta files with the fasta header as file name')
