@@ -3,7 +3,6 @@ library(argparse)
 library(ape)
 library(phylotools)
 library(stringr)
-library(Biostrings)
 # input parameters
 parser <- ArgumentParser(description='retrieve the start and end coordinates of CpG islands in a sequence(forward and reverse complement), with their %GC content and Obs/Exp ratio, by using a sliding window aproach (Gardiner-Garden and Frommer, 1987)')
 parser$add_argument('--fasta', help= 'input fasta file')
@@ -14,6 +13,7 @@ parser$add_argument('--ratio',default='0.6', help= 'min Obs/Exp ratio(float, def
 parser$add_argument('--txt', help= 'output txt file')
 args <- parser$parse_args()
 # main
+library(Biostrings)
 # import fasta as data frame
 imported_fasta <- read.fasta(file = args$fasta)
 # collect fasta sequence, reverse complement sequence, length, window and step size from input parameters
