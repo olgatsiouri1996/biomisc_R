@@ -2,7 +2,7 @@
 library(argparse)
 # input parameters
 parser <- ArgumentParser(description='codon optimize  sequences in single-fasta files')
-parser$add_argument('--dir', help= 'input directory with fasta files')
+parser$add_argument('--dir', help= 'absolute path to  directory with fasta files')
 parser$add_argument('--org', help= 'organism to select from the wSet data frame of GeneGA(the newly fasta headers and fasta files contain as prefix the input gene ids, and as suffix the organism to optimize from --org and _opt)')
 args <- parser$parse_args()
 # input packages for codon optimization
