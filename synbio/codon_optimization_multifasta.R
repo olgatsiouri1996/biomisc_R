@@ -16,14 +16,11 @@ seq <- input_fasta$seq.text
 library(GeneGA)
 library(seqinr)
 library(hash)
-optimized <- lapply(seq,function(x) GeneCodon(x,organism = args$org,max = T))
+optimized <- data.frame(sapply(seq,function(x) GeneCodon(x,organism = args$org,max = T)))
 # create new ids for the optimized sequences
-ids <- lapply(input_fasta$seq.name,function(x) paste(x,args$org,"opt",sep = "_"))
-# convert all final resulted lists from lapply into a data frame so it can be easily exported
-optimized_df <- data.frame(Reduce(rbind, optimized))
-ids_df <- data.frame(Reduce(rbind, ids))
-optimized_fastas <- cbind(ids_df,optimized_df)
+ids <- data.frame(sapply(input_fasta$seq.name,function(x) paste(x,args$org,"opt",sep = "_")))
+# convert all final resulted lists from sapply into a data frame so it can be easily exported
+optimized_fastas <- cbind(ids,optimized)
 colnames(optimized_fastas) <- c("seq.name","seq.text")
 # export data frame to fasta
 dat2fasta(optimized_fastas,outfile = paste(args$prefix,"_",args$org,"_opt",".fasta",sep = ""))
-
