@@ -48,7 +48,7 @@ df <- subset(df, orientation == args$ori1 | orientation == args$ori2)
 splitted_fasta <-data.frame(matrix(ncol = 2, nrow = nrow(df)))  
 colnames(splitted_fasta) <- c("seq.name","seq.text")
 # create fasta headers
-splitted_fasta$seq.name <- paste(df$seq.name,df$start,df$end,df$sep,df$orientation, sep = "_")
+splitted_fasta$seq.name <- paste(df$seq.name,df$start,df$end,df$orientation, sep = "_")
 # add the sequences
 splitted_fasta$seq.text <- df$sapply.starts..function.i...
 # export to fasta
